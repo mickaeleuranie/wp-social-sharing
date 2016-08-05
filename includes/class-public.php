@@ -17,7 +17,7 @@ class SS_Public {
 		$opts = ss_get_options();
 		$show_buttons = false;
 		
-		if( ! empty( $opts['auto_add_post_types'] ) && in_array( get_post_type(), $opts['auto_add_post_types'] ) && is_singular( $opts['auto_add_post_types'] ) ) {
+		if( ! empty( $opts['auto_add_post_types'] ) && in_array( get_post_type(), $opts['auto_add_post_types'] ) && (is_singular( $opts['auto_add_post_types'] ) || (is_home() && in_array( 'home', $opts['auto_add_post_types'] )) ) ) {
 			$show_buttons = true;
 		}
 			

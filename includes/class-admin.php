@@ -82,6 +82,11 @@ class SS_Admin {
 	public function show_settings_page() {
 		$opts = ss_get_options();
 		$post_types = get_post_types( array( 'public' => true ), 'objects' );
+		// add home page
+		$homeType = new StdClass;
+		$homeType->labels = new StdClass;
+		$homeType->labels->name = 'Home';
+		$post_types['home'] = $homeType;
 		include SS_PLUGIN_DIR . 'includes/settings-page.php';
 	}
 }
